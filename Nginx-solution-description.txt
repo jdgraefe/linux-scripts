@@ -1,0 +1,42 @@
+=====================================
+
+Assumptions for the solution:
+Only tested on CentOS 7. Certain commands used will error on other O/S. 
+Required packages are installed (wget)
+Selinux is set to Permissive or Disabled. No facility for dealing with it is included. Nginx startup will fail binding to ports
+Firewall is not blocking ports.
+The system has access to nginx software repos and network connectivity to GITHub
+If using Vagrant, port forwarding must be correct.
+Be aware of Windows to Linux file type differences (may need to run dos2unix)
+
+
+Steps to implement. 
+Copy the text file install-nginx.bash to a CentOS 7 systems meeting the requirements.
+The script is a bash script and location does not matter. Make sure Dos/Windows did not add any extra characters.
+Make the script executable (chmod 755 install-nginx.bash) and execute it.
+You should be able to connect from the host machine at http://127.0.0.1:8000 if running in a local VM (Vagrant / Virtual Box etc.)
+
+Questions:
+1. Describe the most difficult/painful hurdle you had to overcome in implementing your solution.
+
+I think the most difficult part was just making sure I had things covered. The exercise appears simple at first but there are things to consider that seem to crop up. How much testing / check in appropriate within the script is always a consideration as well. Also for me working with Vagrant is relatively new. I did not have a dedicated Linux environment to code on so I wanted to use Vagrant. It took me a little while to figure things out, but once I did I was very happy with it. 
+
+2. Please explain why requirement (ii) above might be important.
+
+If someone runs the script more than once you don't want it to change any configurations and leave something in a state that is no longer working. In this case, it can be run without causing any additional changes but will download the newest version of the html page.
+
+3.  Where did you go to find information to help you in the build process?
+
+Several resources were used: 
+www.vagrantup.com
+www.nginx.com/resources/wiki/
+github.com
+
+There was also a Linux question that I referred to redhat.com for my answer
+
+4. Briefly explain what automation means to you, and why it is important to an organization's infrastructure design strategy.
+
+Automation is the process of mechanizing the production or assembly of something. In the case of IT, it allows for a consistent, repeatable process of building or modifying servers, applications or some other configuration item. The automated process should be not only repeatable but it has to be agile in terms of adapting to the changes around the environment.
+
+For large organizations especially, one of the more difficult things to achieve is consistency.  If Operating systems are allowed to drift from standards, it is a drain on the support staff. The more variation the more difficult it will be to support. The end result might be higher operating costs and more unplanned down time just to name a couple. If as part of the infrastructure design, automation becomes integrated the advantages can be significant in the ability to manage the infrastructure.  The overall goal should be lower cost of ownership and shorter time to production for IT infrastructure.
+
