@@ -1,6 +1,7 @@
 
 
-This will do the job. You could include it as a function in the customer_post_script. Feel free to modify as needed.
+# Checks for a process running without a username. Useful when checking a system after migrating to direcotry serverices.
+# It will flag any procs whos user was removed but there is no directory account.
 
 #!/bin/bash
 for i in `ps -ef |awk '{print $1}' |sort -u`
