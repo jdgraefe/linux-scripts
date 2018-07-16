@@ -4,7 +4,7 @@
 # It will flag any procs whos user was removed but there is no directory account.
 
 #!/bin/bash
-for i in `ps -ef |awk '{print $1}' |sort -u`
+for i in $(ps -ef |awk '{print $1}' |sort -u)
 do
         myvar=$i
           if [[ $myvar =~ [^[:digit:]] ]]
